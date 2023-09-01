@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device", initial-scale="1.0">
+        <title>Traffic Light Simulator</title>
+        <style>
+            .traffic-light{
+                width: 100px;
+                height:300px;
+                border:10px solid black;
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                margin-top:150px;
+                margin-left: 590px;
+                border-radius: 20px;
+                background-color:rgb(0, 0, 0);
+            }
+            .light{
+                width:80px;
+                height:80px;
+                border-radius:50%;
+                margin:10px;
+            }
+            .red{
+                background-color: rgb(255, 0, 0);
+            }
+            .yellow{
+                background-color: yellow;
+            }
+            .green{
+                background-color: green;
+            }
+            .h1{
+                background-color: rgb(14, 168, 240);
+                text-align: center;
+                color: aliceblue;
+                padding: 20px;
+                margin: -10px;
+            }
+            .h3{
+                background-color: rgb(43, 69, 82);
+                padding: 20px;
+                margin: -10px;
+                color: rgb(73, 138, 190);
+            }
+            .img{
+                background-size: cover;
+            }
+    </style>
+    </head>
+    <body background="road.jpg" class="img">
+       <h1 class="h1"><b>Traffic Signal</b></h1>
+               <div class="traffic-light">
+            <div class="light red"></div>
+            <div class="light yellow"></div>
+            <div class="light green"></div>
+        </div>
+       <h3><marquee>Follow all the Traffic rules and signals.</marquee></h3>
+        <script>
+            const redLight=document.querySelector('.red');
+            const yellowLight=document.querySelector('.yellow');
+            const greenLight=document.querySelector('.green');
+
+            function changeLights(){
+                setTimeout(()=>{
+                    redLight.style.backgroundColor='red';
+                    yellowLight.style.backgroundColor='transparent';
+                    greenLight.style.backgroundColor='transparent';
+                    
+                    setTimeout(()=>{
+                    redLight.style.backgroundColor='transparent';
+                    yellowLight.style.backgroundColor='yellow';
+                    greenLight.style.backgroundColor='transparent';
+                    
+                    setTimeout(()=>{
+                    redLight.style.backgroundColor='transparent';
+                    yellowLight.style.backgroundColor='transparent';
+                    greenLight.style.backgroundColor='green';
+                   
+                changeLights();
+                    },2000);//g light for 2sec
+                },1000);//y
+            },2000);
+                }
+                changeLights();//start the cycle
+            </script>
+    </body>
+</html>
